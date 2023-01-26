@@ -11,7 +11,8 @@ concurrency:
 jobs:
   analyze:
     name: 🔎 Analyze
-    runs-on: ubuntu-latest
+    runs-on:
+      labels: hugoocomputer
 
     permissions:
       actions: read
@@ -26,9 +27,6 @@ jobs:
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@main
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
 
       - name: 💜 Initialize CodeQL
         uses: github/codeql-action/init@main
@@ -46,7 +44,8 @@ jobs:
   typescript:
     name: 💙 TypeScript
     needs: analyze
-    runs-on: ubuntu-latest
+    runs-on:
+      labels: hugoocomputer
 
     steps:
       - name: ⬇️ Checkout repository
