@@ -1,0 +1,67 @@
+name: 💚 CI
+
+on:
+  push:
+  workflow_call:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: 🔎 Analyze
+    runs-on: ubuntu-latest
+
+    permissions:
+      actions: read
+      contents: read
+      pull-requests: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [java, javascript]
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@main
+
+      - name: 💜 Initialize CodeQL
+        uses: github/codeql-action/init@main
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: 🏗️ Autobuild
+        uses: github/codeql-action/autobuild@main
+
+      - name: 📊 Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@main
+        with:
+          category: '/language:${{ matrix.language }}'
+
+  typescript:
+    name: 💙 TypeScript
+    needs: analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: 💽 Setup Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version: 'lts/*'
+
+      - name: 📀 Install dependencies
+        uses: ./.github/actions/yarnCache
+
+      - name: ✅ Check
+        run: yarn lint --filter="...[HEAD^1]" -- --format=compact
+
+      - name: 🧪 Tests
+        run: yarn test --filter="...[HEAD^1]"
