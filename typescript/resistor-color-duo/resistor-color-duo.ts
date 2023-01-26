@@ -11,8 +11,8 @@ enum resistor {
 	white = 9,
 }
 
-const resistorColor = (color: string) => resistor[color as keyof typeof resistor];
+const resistorColor = (color: string): resistor => resistor[color as keyof typeof resistor];
 
-export function decodedValue(bands: string[]) {
+export function decodedValue(bands: string[]): number {
 	return Number(bands.slice(0, 2).map(resistorColor).join(''));
 }
