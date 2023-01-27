@@ -7,8 +7,7 @@ on:
 jobs:
   analyze:
     name: 🔎 Analyze
-    runs-on:
-      labels: hugoocomputer
+    runs-on: ubuntu-latest
 
     permissions:
       actions: read
@@ -18,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [java, javascript]
+        language: ['java', 'javascript']
 
     steps:
       - name: ⬇️ Checkout repository
