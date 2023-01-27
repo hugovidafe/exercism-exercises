@@ -4,6 +4,8 @@ on:
   push:
   workflow_call:
 
+permissions: write-all
+
 jobs:
   analyze:
     name: 🔎 Analyze
@@ -17,22 +19,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['java', 'javascript']
+        language: [java, javascript]
 
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@main
 
       - name: 💜 Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@main
         with:
           languages: ${{ matrix.language }}
 
       - name: 🏗️ Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@main
 
       - name: 📊 Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@main
         with:
           category: '/language:${{ matrix.language }}'
 
