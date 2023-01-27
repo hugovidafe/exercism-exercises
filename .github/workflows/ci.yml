@@ -15,11 +15,7 @@ jobs:
       actions: read
       contents: read
       pull-requests: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [java, javascript]
+      security-events: write
 
     steps:
       - name: ⬇️ Checkout repository
@@ -28,15 +24,13 @@ jobs:
       - name: 💜 Initialize CodeQL
         uses: github/codeql-action/init@main
         with:
-          languages: ${{ matrix.language }}
+          languages: java, javascript
 
       - name: 🏗️ Autobuild
         uses: github/codeql-action/autobuild@main
 
       - name: 📊 Perform CodeQL Analysis
         uses: github/codeql-action/analyze@main
-        with:
-          category: '/language:${{ matrix.language }}'
 
   typescript:
     name: 💙 TypeScript
