@@ -31,13 +31,15 @@ jobs:
       - name: 💜 Initialize CodeQL
         uses: github/codeql-action/init@main
         with:
-          languages: java, javascript
+          languages: ${{ matrix.language }}
 
       - name: 🏗️ Autobuild
         uses: github/codeql-action/autobuild@main
 
       - name: 📊 Perform CodeQL Analysis
         uses: github/codeql-action/analyze@main
+        with:
+          category: '/language:${{ matrix.language }}'
 
   typescript:
     name: 💙 TypeScript
