@@ -20,7 +20,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [java, javascript]
+        language:
+          # - java
+          - javascript
 
     steps:
       - name: ⬇️ Checkout repository
