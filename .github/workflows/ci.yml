@@ -88,4 +88,4 @@ jobs:
           check-latest: true
 
       - name: 🧪 Tests
-        run: for d in ./*/ ; do (cd "$d" && gradle test); done
+        run: for d in ./java/*/ ; do (cd "$d" && gradle test); done
