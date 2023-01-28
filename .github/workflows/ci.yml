@@ -17,6 +17,13 @@ jobs:
       pull-requests: write
       security-events: write
 
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          # - java
+          - javascript
+
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@main
@@ -24,19 +31,20 @@ jobs:
       - name: 💜 Initialize CodeQL
         uses: github/codeql-action/init@main
         with:
-          languages: java, javascript
+          languages: ${{ matrix.language }}
 
       - name: 🏗️ Autobuild
         uses: github/codeql-action/autobuild@main
 
       - name: 📊 Perform CodeQL Analysis
         uses: github/codeql-action/analyze@main
+        with:
+          category: '/language:${{ matrix.language }}'
 
   typescript:
     name: 💙 TypeScript
     needs: analyze
-    runs-on:
-      labels: hugoocomputer
+    runs-on: ubuntu-latest
 
     steps:
       - name: ⬇️ Checkout repository
@@ -58,3 +66,26 @@ jobs:
 
       - name: 🧪 Tests
         run: yarn test --filter="...[HEAD^1]"
+
+  java:
+    name: 🧡 Java
+    needs: analyze
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: 💽 Setup Java
+        uses: actions/setup-java@main
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+          check-latest: true
+
+      - name: 🧪 Tests
+        run: for d in ./java/*/ ; do (cd "$d" && gradle test); done
