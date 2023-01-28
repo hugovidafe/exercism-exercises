@@ -44,8 +44,7 @@ jobs:
   typescript:
     name: 💙 TypeScript
     needs: analyze
-    runs-on:
-      labels: hugoocomputer
+    runs-on: ubuntu-latest
 
     steps:
       - name: ⬇️ Checkout repository
