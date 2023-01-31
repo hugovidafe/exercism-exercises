@@ -24,7 +24,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: 📀 Install dependencies
-        uses: for d in ./typescript/*/ ; do (cd "$d" && yarn install --immutable --inline-builds); done
+        run: for d in ./typescript/*/ ; do (cd "$d" && yarn install --immutable --inline-builds); done
 
       - name: ✅ Check
         run: for d in ./typescript/*/ ; do (cd "$d" && yarn lint); done
