@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "resistor-color",
-	"id": "a7c33a3c69a4402f986975aa40f08e61",
-	"url": "https://exercism.org/tracks/typescript/exercises/resistor-color",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"resistor-color","id":"a7c33a3c69a4402f986975aa40f08e61","url":"https://exercism.org/tracks/typescript/exercises/resistor-color","handle":"hugovidafe","is_requester":true,"auto_approve":false}

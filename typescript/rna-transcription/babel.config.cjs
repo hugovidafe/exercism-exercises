@@ -1,4 +1,4 @@
 module.exports = {
-	presets: ['@exercism/babel-preset-typescript'],
-	plugins: [],
-};
+  presets: ['@exercism/babel-preset-typescript'],
+  plugins: [],
+}

@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "rna-transcription",
-	"id": "0391c7eb68bd4ae9a5be02202e53601b",
-	"url": "https://exercism.org/tracks/typescript/exercises/rna-transcription",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"rna-transcription","id":"0391c7eb68bd4ae9a5be02202e53601b","url":"https://exercism.org/tracks/typescript/exercises/rna-transcription","handle":"hugovidafe","is_requester":true,"auto_approve":false}

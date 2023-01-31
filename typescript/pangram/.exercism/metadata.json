@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "pangram",
-	"id": "48f824b70fde4883adbdc11425219d3f",
-	"url": "https://exercism.org/tracks/typescript/exercises/pangram",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"pangram","id":"48f824b70fde4883adbdc11425219d3f","url":"https://exercism.org/tracks/typescript/exercises/pangram","handle":"hugovidafe","is_requester":true,"auto_approve":false}

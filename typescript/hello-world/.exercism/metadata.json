@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "hello-world",
-	"id": "5394bf59cf684cf1a0e17ac06869fe13",
-	"url": "https://exercism.org/tracks/typescript/exercises/hello-world",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"hello-world","id":"5394bf59cf684cf1a0e17ac06869fe13","url":"https://exercism.org/tracks/typescript/exercises/hello-world","handle":"hugovidafe","is_requester":true,"auto_approve":false}

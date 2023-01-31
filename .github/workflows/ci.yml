@@ -7,40 +7,6 @@ on:
 permissions: write-all
 
 jobs:
-  analyze:
-    name: 🔎 Analyze
-    runs-on: ubuntu-latest
-
-    permissions:
-      actions: read
-      contents: read
-      pull-requests: write
-      security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          # - java
-          - javascript
-
-    steps:
-      - name: ⬇️ Checkout repository
-        uses: actions/checkout@main
-
-      - name: 💜 Initialize CodeQL
-        uses: github/codeql-action/init@main
-        with:
-          languages: ${{ matrix.language }}
-
-      - name: 🏗️ Autobuild
-        uses: github/codeql-action/autobuild@main
-
-      - name: 📊 Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@main
-        with:
-          category: '/language:${{ matrix.language }}'
-
   typescript:
     name: 💙 TypeScript
     needs: analyze
@@ -59,13 +25,13 @@ jobs:
           node-version: 'lts/*'
 
       - name: 📀 Install dependencies
-        uses: ./.github/actions/yarnCache
+        uses: for d in ./typescript/*/ ; do (cd "$d" && yarn install --immutable --inline-builds); done
 
       - name: ✅ Check
-        run: yarn lint --filter="...[HEAD^1]" -- --format=compact
+        run: for d in ./typescript/*/ ; do (cd "$d" && yarn lint); done
 
       - name: 🧪 Tests
-        run: yarn test --filter="...[HEAD^1]"
+        run: for d in ./typescript/*/ ; do (cd "$d" && yarn test); done
 
   java:
     name: 🧡 Java

@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "bob",
-	"id": "4790429eff0e4cdcb0982897b1f261a7",
-	"url": "https://exercism.org/tracks/typescript/exercises/bob",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"bob","id":"4790429eff0e4cdcb0982897b1f261a7","url":"https://exercism.org/tracks/typescript/exercises/bob","handle":"hugovidafe","is_requester":true,"auto_approve":false}

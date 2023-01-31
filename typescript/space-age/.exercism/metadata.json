@@ -1,9 +1,1 @@
-{
-	"track": "typescript",
-	"exercise": "space-age",
-	"id": "d300ad641405499b9abf3e022da5bb2f",
-	"url": "https://exercism.org/tracks/typescript/exercises/space-age",
-	"handle": "hugovidafe",
-	"is_requester": true,
-	"auto_approve": false
-}
+{"track":"typescript","exercise":"space-age","id":"d300ad641405499b9abf3e022da5bb2f","url":"https://exercism.org/tracks/typescript/exercises/space-age","handle":"hugovidafe","is_requester":true,"auto_approve":false}
