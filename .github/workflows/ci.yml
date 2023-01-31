@@ -9,7 +9,6 @@ permissions: write-all
 jobs:
   typescript:
     name: 💙 TypeScript
-    needs: analyze
     runs-on: ubuntu-latest
 
     steps:
@@ -35,7 +34,6 @@ jobs:
 
   java:
     name: 🧡 Java
-    needs: analyze
     runs-on: ubuntu-latest
 
     steps:
